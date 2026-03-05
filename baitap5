@@ -1,10 +1,10 @@
 def area(x1, y1, x2, y2, x3, y3):
     return abs((x1*(y2-y3)+x2*(y3-y1)+x3*(y1-y2)) / 2)
 
-xA, yA = map(float, input("A(xA, yA)? ").split())
-xB, yB = map(float, input("B(xB, yB)? ").split())
-xC, yC = map(float, input("C(xC, yC)? ").split())
-xM, yM = map(float, input("M(xM, yM)? ").split())
+xA, yA = map(float, input("A(xA, yA): ").split())
+xB, yB = map(float, input("B(xB, yB): ").split())
+xC, yC = map(float, input("C(xC, yC): ").split())
+xM, yM = map(float, input("M(xM, yM): ").split())
 
 S_ABC = area(xA,yA,xB,yB,xC,yC)
 S1 = area(xM,yM,xA,yA,xB,yB)
