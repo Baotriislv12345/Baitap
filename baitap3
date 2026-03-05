@@ -1,8 +1,8 @@
 import math
 
-xC, yC = map(float, input("Nhap toa do tam C(xC, yC)? ").split())
+xC, yC = map(float, input("Nhap toa do tam C(xC, yC): ").split())
 R = float(input("Nhap ban kinh R? "))
-xM, yM = map(float, input("Nhap toa do M(xM, yM)? ").split())
+xM, yM = map(float, input("Nhap toa do M(xM, yM): ").split())
 
 d = math.sqrt((xM - xC)**2 + (yM - yC)**2)
 
