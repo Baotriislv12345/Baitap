@@ -1,0 +1,19 @@
+import math
+
+a, b, c = map(float, input("Nhap 3 canh tam giac: ").split())
+
+if a + b > c and a + c > b and b + c > a:
+    if a*a + b*b == c*c or a*a + c*c == b*b or b*b + c*c == a*a:
+        print("Tam giac vuong")
+    elif a == b == c:
+        print("Tam giac deu")
+    elif a == b or b == c or a == c:
+        print("Tam giac can")
+    else:
+        print("Tam giac thuong")
+
+    p = (a + b + c) / 2
+    S = math.sqrt(p * (p - a) * (p - b) * (p - c))
+    print("Dien tich S =", S)
+else:
+    print("Khong phai tam giac")
