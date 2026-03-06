@@ -1,0 +1,38 @@
+import math
+
+# Nhập tháng và năm
+month = int(input("Nhap thang: "))
+year = int(input("Nhap nam: "))
+
+# Tính toán theo công thức Zeller
+a = (14 - month) // 12
+y = year - a
+m = month + 12 * a - 2
+
+# dow = thứ của ngày đầu tháng (0 = CN)
+dow = (1 + y + y//4 - y//100 + y//400 + (31*m)//12) % 7
+
+# Xác định số ngày của tháng
+if month in [4,6,9,11]:
+    top = 30
+elif month == 2:
+    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+        top = 29
+    else:
+        top = 28
+else:
+    top = 31
+
+print(" S  M  T  W  T  F  S")
+
+# In khoảng trống trước ngày 1
+for i in range(dow):
+    print("   ", end="")
+
+# In ngày trong tháng
+for d in range(1, top+1):
+    print(f"{d:3}", end="")
+    
+    # xuống dòng khi hết tuần
+    if (dow + d) % 7 == 0:
+        print()
