@@ -1,0 +1,23 @@
+import math
+
+# Nhập các hệ số từ bàn phím
+a,b,c=map(float,input("nhap a, b, c: ").split())
+
+if a == 0:
+    if b == 0:
+        print("Phương trình vô nghiệm!" if c != 0 else "Phương trình vô số nghiệm!")
+    else:
+        print(f"Phương trình bậc nhất có nghiệm x = {-c/b}")
+else:
+    # Tính delta
+    delta = b**2 - 4*a*c
+    
+    if delta < 0:
+        print("Phương trình vô nghiệm thực")
+    elif delta == 0:
+        x = -b / (2*a)
+        print(f"Phương trình có nghiệm kép x1 = x2 = {x}")
+    else:
+        x1 = (-b + math.sqrt(delta)) / (2*a)
+        x2 = (-b - math.sqrt(delta)) / (2*a)
+        print(f"Phương trình có 2 nghiệm phân biệt: x1 = {x1} và x2 = {x2}")
