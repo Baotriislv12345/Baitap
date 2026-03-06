@@ -1,0 +1,23 @@
+while True:
+    sin = input("SIN (0 de thoat): ")
+    if sin == "0":
+        break
+
+    digits = list(map(int, sin))
+    check_digit = digits[-1]
+    s1 = 0
+    s2 = 0
+
+    pos = 1
+    for d in digits[-2::-1]:
+        if pos % 2 == 1:
+            s1 += d
+        else:
+            t = d * 2
+            s2 += t // 10 + t % 10
+        pos += 1
+
+    if (s1 + s2 + check_digit) % 10 == 0:
+        print("SIN hop le!")
+    else:
+        print("SIN khong hop le!")
