@@ -1,38 +1,36 @@
-import math
+import random   # thư viện sinh số ngẫu nhiên
 
-# Nhập tháng và năm
-month = int(input("Nhap thang: "))
-year = int(input("Nhap nam: "))
+# điểm của người và máy
+human_score = 0
+computer_score = 0
 
-# Tính toán theo công thức Zeller
-a = (14 - month) // 12
-y = year - a
-m = month + 12 * a - 2
+while True:
+    # nhập lựa chọn của người
+    human = input("Nhap (b=bao, d=da, k=keo, ky tu khac de thoat): ")
 
-# dow = thứ của ngày đầu tháng (0 = CN)
-dow = (1 + y + y//4 - y//100 + y//400 + (31*m)//12) % 7
+    # nếu nhập khác b,d,k thì thoát
+    if human not in ["b", "d", "k"]:
+        break
 
-# Xác định số ngày của tháng
-if month in [4,6,9,11]:
-    top = 30
-elif month == 2:
-    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
-        top = 29
+    # máy chọn ngẫu nhiên
+    computer = random.choice(["b", "d", "k"])
+
+    print("Computer:", computer)
+
+    # xét kết quả
+    if human == computer:
+        print("Hoa")
+
+    elif (human == "b" and computer == "d") or \
+         (human == "d" and computer == "k") or \
+         (human == "k" and computer == "b"):
+        
+        print("Ban thang")
+        human_score += 1
+
     else:
-        top = 28
-else:
-    top = 31
+        print("May thang")
+        computer_score += 1
 
-print(" S  M  T  W  T  F  S")
-
-# In khoảng trống trước ngày 1
-for i in range(dow):
-    print("   ", end="")
-
-# In ngày trong tháng
-for d in range(1, top+1):
-    print(f"{d:3}", end="")
-    
-    # xuống dòng khi hết tuần
-    if (dow + d) % 7 == 0:
-        print()
+    # in tỷ số
+    print("Ty so human - computer:", human_score, "-", computer_score)
