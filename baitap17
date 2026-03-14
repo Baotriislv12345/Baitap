@@ -1,0 +1,24 @@
+friends = ["A","B","C","D","E"]
+
+year = int(input("Nhap nam: "))
+first_day = int(input("Thu ngay dau nam (0=CN): "))
+month = int(input("Nhap thang: "))
+
+import calendar
+days = calendar.monthrange(year, month)[1]
+
+print("Sun Mon Tue Wed Thu Fri Sat")
+
+turn = 0
+
+for d in range(1, days+1):
+    dow = (first_day + d - 1) % 7
+    
+    if dow == 0:
+        print(f"{d:2} [ ]", end=" ")
+    else:
+        print(f"{d:2} [{friends[turn]}]", end=" ")
+        turn = (turn + 1) % 5
+    
+    if dow == 6:
+        print()
