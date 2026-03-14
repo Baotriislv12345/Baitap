@@ -1,0 +1,9 @@
+hours = int(input("Nhap so gio: "))
+
+weeks = hours // (24*7)
+hours %= (24*7)
+
+days = hours // 24
+hours %= 24
+
+print(weeks,"tuan,",days,"ngay,",hours,"gio")
