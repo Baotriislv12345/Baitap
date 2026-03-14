@@ -1,0 +1,6 @@
+import calendar
+
+year = int(input("Nhap nam: "))
+
+# In lịch cả năm
+print(calendar.calendar(year))
