@@ -1,0 +1,14 @@
+kw = int(input("Nhap so kW tieu thu: "))
+
+cost = 0
+
+if kw <= 100:
+    cost = kw * 500
+elif kw <= 250:
+    cost = 100*500 + (kw-100)*800
+elif kw <= 350:
+    cost = 100*500 + 150*800 + (kw-250)*1000
+else:
+    cost = 100*500 + 150*800 + 100*1000 + (kw-350)*1500
+
+print("Chi phi:", cost)
